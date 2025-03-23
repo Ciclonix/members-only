@@ -1,0 +1,21 @@
+<% flash.each do |name, message| %>
+  <div class="<%= name %>"><%= message %></div>
+<% end %>
+
+<h1>Posts</h1>
+
+<ul>
+  <% @posts.each do |article| %>
+    <li>
+      <strong>Author:</strong>
+      <% if user_signed_in? %>
+        <%= current_user.username %>
+      <% else %>
+        Secret (Sign-in to reveal)
+      <% end %><br>
+      <%= posts.body %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Post", new_post_path %>

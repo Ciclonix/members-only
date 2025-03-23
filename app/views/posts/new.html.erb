@@ -1,0 +1,11 @@
+<% flash.each do |name, message| %>
+  <div class="<%= name %>"><%= message %></div>
+<% end %>
+
+<%= form_with model: @post do |form| %>
+  <%= form.label :body, "Write your new post here" %><br>
+  <%= form.text_field :body %><br><br>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "Post List", posts_path %>
